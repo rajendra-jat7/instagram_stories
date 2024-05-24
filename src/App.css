@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+.app {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+.stories-list {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.user-story {
+  position: relative;
+  margin: 0 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.user-story img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  background: white;
+  padding: 2px;
+}
+
+.user-story::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgb(216, 223, 16), rgb(224, 7, 231));
+  z-index: 0;
+}
+
+.user-story.unseen::before {
+  background: linear-gradient(45deg, rgb(216, 223, 16), rgb(224, 7, 231));
+}
+
+.user-story p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.story-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-card {
+  position: relative;
+  width: 250px;
+  height: 500px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.progress-bar-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  height: 5px;
+}
+
+.progress-bar {
+  flex-grow: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-right: 2px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #ff0000;
+  animation: progress 5s linear;
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.user-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #fff;
+}
+
+.user-info .user-name {
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev-button, .next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
